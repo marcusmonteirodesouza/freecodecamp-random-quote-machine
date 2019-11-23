@@ -1,0 +1,63 @@
+{
+  "name": "freecodecamp-random-quote-machine",
+  "version": "1.0.0",
+  "description": "My solution to FreeCodeCamp's Random Quote Machine challenge",
+  "scripts": {
+    "format": "prettier --write ./**/*.{html,js,jsx,css}",
+    "lint": "xo --fix",
+    "test": "jest",
+    "start": "parcel src/index.html"
+  },
+  "keywords": [],
+  "author": "Marcus Vinicius Monteiro de Souza",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint-config-xo-react": "^0.20.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.3",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "^16.12.0",
+    "serve": "^11.2.0",
+    "xo": "^0.25.3"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "envs": [
+      "browser"
+    ],
+    "prettier": "true"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
+  },
+  "husky": {
+    "pre-commit": [
+      "npm test",
+      "lint-staged"
+    ]
+  },
+  "lint-staged": {
+    "./**/*.{html,css}": [
+      "prettier --write",
+      "git add"
+    ],
+    "./**/*.{js,jsx}": [
+      "xo --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
