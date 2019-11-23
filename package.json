@@ -36,18 +36,18 @@
   "xo": {
     "extends": "xo-react",
     "envs": [
-      "browser"
+      "browser",
+      "jest"
     ],
     "prettier": "true"
   },
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>src/setupTests.js"]
+    "setupFilesAfterEnv": ["<rootDir>src/setup-tests.js"]
   },
   "husky": {
-    "pre-commit": [
-      "npm test",
-      "lint-staged"
-    ]
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
+    }
   },
   "lint-staged": {
     "./**/*.{html,css}": [
