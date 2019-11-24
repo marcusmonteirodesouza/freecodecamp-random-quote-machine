@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import quotesService from '../service';
 
 const QuoteBox = ({ quoteService }) => {
@@ -46,11 +48,15 @@ const QuoteBox = ({ quoteService }) => {
       >
         new quote
       </button>
-      <div>
-        <button type="button" id="tweet-quote">
-          <a href="twitter.com/intent/tweet">tweet quote</a>
-        </button>
-      </div>
+      <a
+        id="tweet-quote"
+        className="twitter-share-button"
+        href={`https://twitter.com/intent/tweet?text=${quoteData.quote} ${quoteData.author}&hashtags=quotes`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FontAwesomeIcon icon={faTwitter} />
+      </a>
     </div>
   ) : (
     <p>Loading quote...</p>

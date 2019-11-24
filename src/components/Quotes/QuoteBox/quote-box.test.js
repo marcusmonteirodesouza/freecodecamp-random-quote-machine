@@ -105,10 +105,7 @@ describe('QuoteBox', () => {
   test('5 Within #quote-box, I can see a clickable a element with a corresponding id="tweet-quote"', async () => {
     const { container } = render(defaultQuoteBox);
     const wrapper = await findByTestId(container, 'quote-box');
-    expect(wrapper.querySelector('#tweet-quote')).toHaveAttribute(
-      'type',
-      'button'
-    );
+    expect(wrapper.querySelector('#tweet-quote').tagName).toBe('A');
   });
 
   test('6 On first load, my quote machine displays a random quote in the element with id="text"', async () => {
@@ -151,8 +148,7 @@ describe('QuoteBox', () => {
     const { container } = render(defaultQuoteBox);
     const wrapper = await findByTestId(container, 'quote-box');
     const tweetQuote = wrapper.querySelector('#tweet-quote');
-    const tweetQuoteAnchor = tweetQuote.querySelector('a');
-    expect(tweetQuoteAnchor.href).toContain('twitter.com/intent/tweet');
+    expect(tweetQuote.href).toContain('twitter.com/intent/tweet');
   });
 
   test.todo(
