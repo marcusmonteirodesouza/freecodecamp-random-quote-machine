@@ -1,7 +1,12 @@
 import React from 'react';
+import QuoteBox from '../Quotes/QuoteBox';
 
 const App = () => {
-  return <h1>Hello, World!</h1>;
+  return (
+    <div>
+      <QuoteBox />
+    </div>
+  );
 };
 
 export default App;
