@@ -2,17 +2,27 @@ import React from 'react';
 import QuoteBox from '../Quotes/QuoteBox';
 
 const styles = {
-  app: {
+  appContainer: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    transform: 'rotate(-1.75deg)'
   },
-  quoteBoxContainer: {}
+  appHeader: {
+    textTransform: 'capitalize'
+  },
+  quoteBoxContainer: {
+    width: '60%'
+  }
 };
 
 const App = () => {
   return (
-    <div style={styles.app}>
+    <div style={styles.appContainer}>
+      <header style={styles.appHeader}>
+        <h1>programming quotes...</h1>
+      </header>
       <div style={styles.quoteBoxContainer}>
         <QuoteBox />
       </div>

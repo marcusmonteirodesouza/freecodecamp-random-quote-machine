@@ -44,8 +44,10 @@ const QuoteBox = ({ quoteService }) => {
       </blockquote>
       <div style={{ textAlign: 'center' }}>
         <button
+          style={{ textTransform: 'capitalize', cursor: 'pointer' }}
           type="button"
           id="new-quote"
+          title="Fetch Another Quote"
           onClick={async () =>
             setQuoteData(await quoteService.fetchQuoteData())
           }
@@ -59,6 +61,7 @@ const QuoteBox = ({ quoteService }) => {
           href={`https://twitter.com/intent/tweet?text=${quoteData.quote} ${quoteData.author}&hashtags=quotes`}
           target="_blank"
           rel="noopener noreferrer"
+          title="Share on Twitter"
         >
           <FontAwesomeIcon icon={faTwitter} />
         </a>
